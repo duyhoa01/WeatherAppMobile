@@ -1,6 +1,7 @@
 package com.example.weatherapp.viewmodel;
 
 import com.example.weatherapp.model.CurrentData;
+import com.example.weatherapp.model.LatLonData;
 
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
 import io.reactivex.rxjava3.core.Single;
@@ -20,7 +21,11 @@ public class WeatherApiService {
                 .create(WeatherApi.class);
     }
 
-    public Single<CurrentData> getData(){
-        return  api.getData();
+    public Single<CurrentData> getData(String namecity, String key){
+        return  api.getData(namecity,key);
+    }
+
+    public Single<LatLonData> getLatLon(String namecity, String key){
+        return  api.getLatLon(namecity,key);
     }
 }
