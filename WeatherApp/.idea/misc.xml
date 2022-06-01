@@ -3,7 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< HEAD
         <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.199" />
         <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/clear_day_24.xml" value="0.1755" />
         <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/cloud.xml" value="0.1" />
@@ -21,10 +20,9 @@
         <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/fragment_details.xml" value="0.264" />
         <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/fragment_list_city.xml" value="0.1" />
         <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/hourly_item.xml" value="0.4" />
-=======
         <entry key="..\:/laptrinhmobile/CuoiKy/FinalProject/WeatherApp/app/src/main/res/layout/fragment_details.xml" value="0.264" />
         <entry key="..\:/laptrinhmobile/CuoiKy/FinalProject/WeatherApp/app/src/main/res/layout/fragment_list_city.xml" value="0.4" />
->>>>>>> 5841e61fb50cf7213086cd9f13d1be743f69bc15
+        <entry key="..\:/laptrinhmobile/CuoiKy/FinalProject/WeatherApp/app/src/main/res/layout/fragment_list_city.xml" value="0.12" />
       </map>
     </option>
   </component>
