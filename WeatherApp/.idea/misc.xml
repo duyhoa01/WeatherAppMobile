@@ -16,6 +16,27 @@
         <entry key="..\:/HocTap/LT Di dong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/fragment_list_city.xml" value="0.12129629629629629" />
         <entry key="..\:/HocTap/LT Di dong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/select_city.xml" value="0.264" />
         <entry key="..\:/HocTap/LT Di dong/WeatherAppMobile/WeatherApp/app/src/main/res/menu/menu_search.xml" value="0.264" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.199" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/clear_day_24.xml" value="0.1755" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/cloud.xml" value="0.1" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/gradient_square.xml" value="0.1" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/gray_square.xml" value="0.1" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/humidity.xml" value="0.1" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.199" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.199" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/speedometer.xml" value="0.1" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/ultraviolet.xml" value="0.1" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/visibility.xml" value="0.1" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/wind_speed.xml" value="0.1" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/activity_main.xml" value="0.11388888888888889" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/city_item.xml" value="0.15942028985507245" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/daily_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/detail_select_city.xml" value="0.15942028985507245" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/fragment_details.xml" value="0.264" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/fragment_list_city.xml" value="0.1" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/hourly_item.xml" value="0.4" />
+        <entry key="..\:/laptrinhmobile/CuoiKy/FinalProject/WeatherApp/app/src/main/res/layout/fragment_details.xml" value="0.264" />
+        <entry key="..\:/laptrinhmobile/CuoiKy/FinalProject/WeatherApp/app/src/main/res/layout/fragment_list_city.xml" value="0.12" />
       </map>
     </option>
   </component>
