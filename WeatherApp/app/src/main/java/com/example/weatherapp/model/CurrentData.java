@@ -91,29 +91,29 @@ public class CurrentData {
 
 }
 
-class Weather{
-    @SerializedName("id")
-    private String id;
-
-    @SerializedName("main")
-    private String main;
-
-    @SerializedName("description")
-    private String discription;
-
-    @SerializedName("icon")
-    private String icon;
-
-    @Override
-    public String toString() {
-        return "Weather{" +
-                "id='" + id + '\'' +
-                ", main='" + main + '\'' +
-                ", discription='" + discription + '\'' +
-                ", icon='" + icon + '\'' +
-                '}';
-    }
-}
+//class Weather{
+//    @SerializedName("id")
+//    private String id;
+//
+//    @SerializedName("main")
+//    private String main;
+//
+//    @SerializedName("description")
+//    private String discription;
+//
+//    @SerializedName("icon")
+//    private String icon;
+//
+//    @Override
+//    public String toString() {
+//        return "Weather{" +
+//                "id='" + id + '\'' +
+//                ", main='" + main + '\'' +
+//                ", discription='" + discription + '\'' +
+//                ", icon='" + icon + '\'' +
+//                '}';
+//    }
+//}
 
 class Coord{
     @SerializedName("lon")

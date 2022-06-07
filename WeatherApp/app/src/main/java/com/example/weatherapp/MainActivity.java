@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.weatherapp.model.CurrentData;
+import com.example.weatherapp.model.Daylydata;
 import com.example.weatherapp.viewmodel.WeatherApi;
 import com.example.weatherapp.viewmodel.WeatherApiService;
 
@@ -25,20 +26,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         dataApiService = new WeatherApiService();
-        dataApiService.getData()
+        dataApiService.getDataofday()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSingleObserver<CurrentData>() {
+                .subscribeWith(new DisposableSingleObserver<Daylydata>() {
                     @Override
-                    public void onSuccess(@NonNull CurrentData currentData) {
-                        System.out.println("visibility: "+currentData.getVisibility());
-                        System.out.println("main: "+currentData.getMain());
-                        System.out.println("weather: "+currentData.getWeather().get(0));
+                    public void onSuccess(@NonNull Daylydata daylydata) {
+
+
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        System.out.println("Visibility"+e.getMessage());
+                        System.out.println("err   "  +e.getMessage());
                     }
                 });
     }
