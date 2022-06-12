@@ -4,6 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/ad/doan/WeatherAppMobile/WeatherApp/app/src/main/res/layout/activity_main.xml" value="0.10989583333333333" />
+        <entry key="..\:/ad/doan/WeatherAppMobile/WeatherApp/app/src/main/res/layout/city_item.xml" value="0.10989583333333333" />
+        <entry key="..\:/ad/doan/WeatherAppMobile/WeatherApp/app/src/main/res/layout/daily_item.xml" value="0.10989583333333333" />
+        <entry key="..\:/ad/doan/WeatherAppMobile/WeatherApp/app/src/main/res/layout/detail_select_city.xml" value="0.10989583333333333" />
+        <entry key="..\:/ad/doan/WeatherAppMobile/WeatherApp/app/src/main/res/layout/fragment_details.xml" value="0.10989583333333333" />
+        <entry key="..\:/ad/doan/WeatherAppMobile/WeatherApp/app/src/main/res/layout/fragment_list_city.xml" value="0.10989583333333333" />
+        <entry key="..\:/ad/doan/WeatherAppMobile/WeatherApp/app/src/main/res/layout/hourly_item.xml" value="0.10989583333333333" />
         <entry key="..\:/laptrinhmobile/CuoiKy/FinalProject/WeatherApp/app/src/main/res/layout/fragment_details.xml" value="0.264" />
         <entry key="..\:/laptrinhmobile/CuoiKy/FinalProject/WeatherApp/app/src/main/res/layout/fragment_list_city.xml" value="0.4" />
       </map>
