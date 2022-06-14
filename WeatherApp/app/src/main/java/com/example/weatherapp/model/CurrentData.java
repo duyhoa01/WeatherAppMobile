@@ -350,5 +350,79 @@ public class CurrentData {
 
 }
 
+//class Weather{
+//    @SerializedName("id")
+//    private String id;
+//
+//    @SerializedName("main")
+//    private String main;
+//
+//    @SerializedName("description")
+//    private String discription;
+//
+//    @SerializedName("icon")
+//    private String icon;
+//
+//    @Override
+//    public String toString() {
+//        return "Weather{" +
+//                "id='" + id + '\'' +
+//                ", main='" + main + '\'' +
+//                ", discription='" + discription + '\'' +
+//                ", icon='" + icon + '\'' +
+//                '}';
+//    }
+//}
+
+class Coord{
+    @SerializedName("lon")
+    private String lon;
+
+    @SerializedName("lat")
+    private String lat;
+
+    public String getLon() {
+        return lon;
+    }
+
+    public void setLon(String lon) {
+        this.lon = lon;
+    }
+
+    public String getLat() {
+        return lat;
+    }
+
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
+}
+
+class Wmain {
+
+    @SerializedName("temp")
+    private String temp;
+
+    @SerializedName("feels_like")
+    private String feelsLike;
+
+    @SerializedName("temp_min")
+    private String tempMin;
+
+    @SerializedName("temp_max")
+    private String tempMax;
+
+    @SerializedName("pressure")
+    private String pressure;
+
+    @SerializedName("humidity")
+    private String humidity;
+
+    @SerializedName("sea_level")
+    private String seaLevel;
+
+    @SerializedName("grnd_level")
+    private String grndLevel;
+}
 
 
