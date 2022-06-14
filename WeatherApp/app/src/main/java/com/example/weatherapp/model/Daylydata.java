@@ -75,7 +75,7 @@ public class Daylydata {
     public void setDaily(List<Daily> daily) {
         this.daily = daily;
     }
-    class  Temp{
+    public class  Temp{
         @SerializedName("day")
         private String day;
         @SerializedName("min")
@@ -90,7 +90,7 @@ public class Daylydata {
         private  String morn;
     }
 
-    class Feels_like{
+    public class Feels_like{
         @SerializedName("day")
         private  String day;
         @SerializedName("night")
@@ -101,7 +101,7 @@ public class Daylydata {
         private  String morn;
     }
 
-    class Weather{
+    public class Weather{
         @SerializedName("id")
         private  String id;
         @SerializedName("main")
@@ -120,7 +120,7 @@ public class Daylydata {
         }
     }
 
-    class Hourly{
+    public class Hourly{
         @SerializedName("dt")
         private String dt;
         @SerializedName("temp")
@@ -148,7 +148,7 @@ public class Daylydata {
         @SerializedName("pop")
         private String pop;
     }
-    class Current{
+    public class Current{
         @SerializedName("dt")
         private String dt;
         @SerializedName("sunrise")
@@ -290,7 +290,7 @@ public class Daylydata {
             this.weather = weather;
         }
     }
-    class  Daily{
+    public class  Daily{
         @SerializedName("dt")
         private String dt;
         @SerializedName("sunrise")

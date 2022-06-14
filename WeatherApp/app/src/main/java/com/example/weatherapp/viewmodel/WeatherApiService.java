@@ -31,5 +31,5 @@ public class WeatherApiService {
     public Single<LatLonData> getLatLon(String namecity, String key){
         return  api.getLatLon(namecity,key);
     }
-    public  Single <Daylydata> getDataofday(String lat, String lon, String exclude, String key){return  api.getDataofday(lat,lon,exclude,key);}
+    public  Single <Daylydata> getDataOfDay(String lat, String lon, String exclude, String key){return  api.getDataOfDay(lat,lon,exclude,key);}
 }
