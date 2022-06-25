@@ -1,6 +1,7 @@
 package com.example.weatherapp.model;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -20,9 +21,20 @@ public class Daylydata {
         return key;
     }
 
+
     public void setKey(int key) {
         this.key = key;
     }
+    @ColumnInfo(defaultValue = "")
+    private String cityName;
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
 
     @NonNull
     @SerializedName("lat")
@@ -119,19 +131,19 @@ public class Daylydata {
         this.daily = daily;
     }
 
-    public class  Temp{
+    public class Temp {
         @SerializedName("day")
         private String day;
         @SerializedName("min")
-        private  String min;
+        private String min;
         @SerializedName("max")
-        private  String max;
+        private String max;
         @SerializedName("night")
-        private  String night;
+        private String night;
         @SerializedName("eve")
-        private  String eve;
+        private String eve;
         @SerializedName("morn")
-        private  String morn;
+        private String morn;
 
         public String getDay() {
             return day;
@@ -182,26 +194,27 @@ public class Daylydata {
         }
     }
 
-    public class Feels_like{
+    public class Feels_like {
         @SerializedName("day")
-        private  String day;
+        private String day;
         @SerializedName("night")
-        private  String night;
+        private String night;
         @SerializedName("eve")
-        private  String eve;
+        private String eve;
         @SerializedName("morn")
-        private  String morn;
+        private String morn;
     }
 
-    public class Weather{
+    public class Weather {
         @SerializedName("id")
-        private  String id;
+        private String id;
         @SerializedName("main")
-        private  String main;
+        private String main;
         @SerializedName("description")
-        private  String description;
+        private String description;
         @SerializedName("icon")
-        private  String icon;
+        private String icon;
+
         public String toString() {
             return "Weather{" +
                     "id='" + id + '\'' +
@@ -244,7 +257,7 @@ public class Daylydata {
         }
     }
 
-    public class Hourly{
+    public class Hourly {
         @SerializedName("dt")
         private String dt;
         @SerializedName("temp")
@@ -407,7 +420,8 @@ public class Daylydata {
             this.pop = pop;
         }
     }
-    public static class Current{
+
+    public static class Current {
         @SerializedName("dt")
         private String dt;
         @SerializedName("sunrise")
@@ -567,11 +581,12 @@ public class Daylydata {
                     ", visibility='" + visibility + '\'' +
                     ", wind_speed='" + wind_speed + '\'' +
                     ", wind_deg='" + wind_deg + '\'' +
-                    ", weather="  +
+                    ", weather=" +
                     '}';
         }
     }
-    public class  Daily{
+
+    public class Daily {
         @SerializedName("dt")
         private String dt;
         @SerializedName("sunrise")
@@ -779,3 +794,4 @@ public class Daylydata {
                     '}';
         }
     }
+}

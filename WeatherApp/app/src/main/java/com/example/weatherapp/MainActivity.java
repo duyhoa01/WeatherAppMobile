@@ -34,98 +34,22 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
-//<<<<<<< HEAD
-//    private ActivityMainBinding binding;
-//    private ArrayList<String> citylist;
-//    private CityAdapter cityAdapter;
-//=======
-    private WeatherApiService dataApiService;
-    private String nameCity="HaNoi";
-    private String key="7b0df47e7b9398060bba4ba9fb314856";
-    public String lat;
-    public String lon;
-    private AppDatabase appDatabase;
-    private DaylydataDao itemDAO;
-    public static Context context;
     private ActivityMainBinding binding;
 
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_search, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu_search, menu);
+//        return true;
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.fragment_details);
-//        context = this;
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-
-//        appDatabase = AppDatabase.getInstance(this);
-//        itemDAO = appDatabase.contactDao();
-//
-//        dataApiService = new WeatherApiService();
-//
-//        dataApiService.getLatLon(nameCity,key)
-//                .subscribeOn(Schedulers.newThread())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribeWith(new DisposableSingleObserver<LatLonData>() {
-//                    @Override
-//                    public void onSuccess(@NonNull LatLonData latLonData) {
-//                        System.out.println("lat: "+ latLonData.getCoord().getLat()+ " long: "+latLonData.getCoord().getLon());
-//                        lat=latLonData.getCoord().getLat();
-//                        lon=latLonData.getCoord().getLon();
-//                        dataApiService.getDataOfDay(lat,lon,"minutely",key)
-//                                .subscribeOn(Schedulers.newThread())
-//                                .observeOn(AndroidSchedulers.mainThread())
-//                                .subscribeWith(new DisposableSingleObserver<Daylydata>() {
-//                                    @Override
-//                                    public void onSuccess(@NonNull Daylydata daylydata) {
-//                                        AsyncTask.execute(new Runnable() {
-//                                            @Override
-//                                            public void run() {
-//                                                itemDAO.nukeTable();
-//                                                itemDAO.Insert(daylydata);
-//                                                List<Daylydata> daylydata1=itemDAO.getDogs();
-//                                                for(Daylydata d :daylydata1){
-//                                                    System.out.println("Main: "+d.getCurrent().getWeather().get(0).getMain());
-//                                                }
-//                                            }
-//                                        });
-//
-//
-//                                        //System.out.println("daily: "+ daylydata.getLat());
-//                                    }
-//
-//                                    @Override
-//                                    public void onError(@NonNull Throwable e) {
-//                                        System.out.println("err   "  +e.getMessage());
-//                                    }
-//                                });
-//                    }
-//
-//                    @Override
-//                    public void onError(@NonNull Throwable e) {
-//                        System.out.println("ko co thanh pho: "+e.getMessage());
-//                    }
-//                });
-
-//        AsyncTask.execute(new Runnable() {
-//            @Override
-//            public void run() {
-//
-////              itemDAO.Insert(daylydata);
-//                List<Daylydata> daylydata1=itemDAO.getDogs();
-//                for(Daylydata d :daylydata1){
-//                    System.out.println("Main: "+d.getDaily().get(0).getWeather().get(0).getMain());
-//                }
-//            }
-//        });
 
     }
 

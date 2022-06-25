@@ -41,13 +41,13 @@ public class HourlyAdapter extends RecyclerView.Adapter<HourlyAdapter.ViewHolder
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull HourlyAdapter.ViewHolder holder, int position) {
-        final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:00");
         final long unixTime = Long.parseLong(hourlies.get(position).getDt());
         final String formattedDtm = Instant.ofEpochSecond(unixTime)
                 .atZone(ZoneId.of("GMT+7"))
                 .format(formatter);
         holder.tvHourlyTemp.setText(hourlies.get(position).getTemp());
-        holder.tvDailyDescription.setText(hourlies.get(position).getWeather().get(0).getDescription());
+//        holder.tvDailyDescription.setText(hourlies.get(position).getWeather().get(0).getDescription());
         holder.tvHourlyTime.setText(formattedDtm);
     }
 

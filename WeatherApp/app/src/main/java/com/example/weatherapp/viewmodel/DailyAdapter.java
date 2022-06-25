@@ -47,7 +47,7 @@ public class DailyAdapter extends RecyclerView.Adapter<DailyAdapter.ViewHolder>{
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull DailyAdapter.ViewHolder holder, int position) {
-        final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH");
+        final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         final long unixTime = Long.parseLong(dailys.get(position).getDt());
         final String formattedDtm = Instant.ofEpochSecond(unixTime)
                 .atZone(ZoneId.of("GMT+7"))
