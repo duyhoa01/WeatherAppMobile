@@ -17,6 +17,7 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
     public CityAdapter(ArrayList<String> citys) {
         this.citys = citys;
     }
+    //ấdf
 
     @NonNull
     @Override
