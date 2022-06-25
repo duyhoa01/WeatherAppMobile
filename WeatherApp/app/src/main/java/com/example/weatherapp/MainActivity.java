@@ -1,132 +1,116 @@
-package com.example.weatherapp;
+package com.midterm.mycurrentlocation;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.AsyncTask;
+import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
-//import com.example.weatherapp.databinding.ActivityMainBinding;
-
-import java.util.ArrayList;
-
-import com.example.weatherapp.databinding.ActivityMainBinding;
-import com.example.weatherapp.model.CurrentData;
-import com.example.weatherapp.model.Daylydata;
-import com.example.weatherapp.model.LatLonData;
-import com.example.weatherapp.viewmodel.AppDatabase;
-import com.example.weatherapp.viewmodel.DaylydataDao;
-import com.example.weatherapp.viewmodel.WeatherApi;
-import com.example.weatherapp.viewmodel.WeatherApiService;
-
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.annotations.NonNull;
-import io.reactivex.rxjava3.observers.DisposableSingleObserver;
-import io.reactivex.rxjava3.schedulers.Schedulers;
+public class MainActivity extends AppCompatActivity implements LocationListener {
+    Button button_location;
+    TextView textView_location;
+    LocationManager locationManager;
 
-public class MainActivity extends AppCompatActivity {
-
-//<<<<<<< HEAD
-//    private ActivityMainBinding binding;
-//    private ArrayList<String> citylist;
-//    private CityAdapter cityAdapter;
-//=======
-    private WeatherApiService dataApiService;
-    private String nameCity="HaNoi";
-    private String key="7b0df47e7b9398060bba4ba9fb314856";
-    public String lat;
-    public String lon;
-    private AppDatabase appDatabase;
-    private DaylydataDao itemDAO;
-    public static Context context;
-    private ActivityMainBinding binding;
-
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_search, menu);
-        return true;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.fragment_details);
-//        context = this;
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
+        setContentView(R.layout.activity_main);
 
-//        appDatabase = AppDatabase.getInstance(this);
-//        itemDAO = appDatabase.contactDao();
-//
-//        dataApiService = new WeatherApiService();
-//
-//        dataApiService.getLatLon(nameCity,key)
-//                .subscribeOn(Schedulers.newThread())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribeWith(new DisposableSingleObserver<LatLonData>() {
-//                    @Override
-//                    public void onSuccess(@NonNull LatLonData latLonData) {
-//                        System.out.println("lat: "+ latLonData.getCoord().getLat()+ " long: "+latLonData.getCoord().getLon());
-//                        lat=latLonData.getCoord().getLat();
-//                        lon=latLonData.getCoord().getLon();
-//                        dataApiService.getDataOfDay(lat,lon,"minutely",key)
-//                                .subscribeOn(Schedulers.newThread())
-//                                .observeOn(AndroidSchedulers.mainThread())
-//                                .subscribeWith(new DisposableSingleObserver<Daylydata>() {
-//                                    @Override
-//                                    public void onSuccess(@NonNull Daylydata daylydata) {
-//                                        AsyncTask.execute(new Runnable() {
-//                                            @Override
-//                                            public void run() {
-//                                                itemDAO.nukeTable();
-//                                                itemDAO.Insert(daylydata);
-//                                                List<Daylydata> daylydata1=itemDAO.getDogs();
-//                                                for(Daylydata d :daylydata1){
-//                                                    System.out.println("Main: "+d.getCurrent().getWeather().get(0).getMain());
-//                                                }
-//                                            }
-//                                        });
-//
-//
-//                                        //System.out.println("daily: "+ daylydata.getLat());
-//                                    }
-//
-//                                    @Override
-//                                    public void onError(@NonNull Throwable e) {
-//                                        System.out.println("err   "  +e.getMessage());
-//                                    }
-//                                });
-//                    }
-//
-//                    @Override
-//                    public void onError(@NonNull Throwable e) {
-//                        System.out.println("ko co thanh pho: "+e.getMessage());
-//                    }
-//                });
+        textView_location =findViewById(R.id.text_location);
+        button_location=findViewById(R.id.button_location);
+        if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(MainActivity.this,new String[]
+                    {
+                            Manifest.permission.ACCESS_FINE_LOCATION
+                    },100);
 
-//        AsyncTask.execute(new Runnable() {
-//            @Override
-//            public void run() {
-//
-////              itemDAO.Insert(daylydata);
-//                List<Daylydata> daylydata1=itemDAO.getDogs();
-//                for(Daylydata d :daylydata1){
-//                    System.out.println("Main: "+d.getDaily().get(0).getWeather().get(0).getMain());
-//                }
-//            }
-//        });
+        }
+
+        button_location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getLocation();
+            }
+        });
+    }
+    @SuppressLint("MissingPermission")
+    private  void getLocation()
+    {
+
+        try {
+            locationManager= (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,5000,5,this);
+
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();;
+        }
+
+
+
 
     }
 
+    @Override
+    public void onLocationChanged(@NonNull Location location) {
+        Toast.makeText(this,""+location.getLatitude()+","+location.getLongitude(),Toast.LENGTH_SHORT).show();
+        try {
+            Geocoder geocoder = new Geocoder(MainActivity.this, Locale.getDefault());
+            List<Address> addresses = geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
+            String address = addresses.get(0).getAddressLine(0);
+            textView_location.setText(address);
+
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();;
+        }
+        System.out.println(location.getLatitude()+","+location.getLongitude());
+    }
+
+    @Override
+    public void onLocationChanged(@NonNull List<Location> locations) {
+        LocationListener.super.onLocationChanged(locations);
+    }
+
+    @Override
+    public void onFlushComplete(int requestCode) {
+        LocationListener.super.onFlushComplete(requestCode);
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+        LocationListener.super.onStatusChanged(provider, status, extras);
+    }
+
+    @Override
+    public void onProviderEnabled(@NonNull String provider) {
+        LocationListener.super.onProviderEnabled(provider);
+    }
+
+    @Override
+    public void onProviderDisabled(@NonNull String provider) {
+        LocationListener.super.onProviderDisabled(provider);
+    }
 }
