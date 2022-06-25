@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/city_item.xml" value="0.264" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/daily_item.xml" value="0.264" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/detail_select_city.xml" value="0.1381340579710145" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/fragment_details.xml" value="0.264" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/fragment_list_city.xml" value="0.25416666666666665" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/hourly_item.xml" value="0.1" />
         <entry key="..\:/ad/doan/WeatherAppMobile/WeatherApp/app/src/main/res/layout/activity_main.xml" value="0.10989583333333333" />
         <entry key="..\:/ad/doan/WeatherAppMobile/WeatherApp/app/src/main/res/layout/city_item.xml" value="0.10989583333333333" />
         <entry key="..\:/ad/doan/WeatherAppMobile/WeatherApp/app/src/main/res/layout/daily_item.xml" value="0.10989583333333333" />
