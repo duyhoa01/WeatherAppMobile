@@ -3,11 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2415" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/blue_square.xml" value="0.2415" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/clear_day_24.xml" value="0.2415" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/gradient_square.xml" value="0.2415" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.2415" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/ic_baseline_gps_fixed_24.xml" value="0.2415" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.2415" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/ic_delete.xml" value="0.2415" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2415" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/drawable/speedometer.xml" value="0.2415" />
         <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/city_item.xml" value="0.264" />
         <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/daily_item.xml" value="0.264" />
         <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/detail_select_city.xml" value="0.1381340579710145" />
-        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/fragment_details.xml" value="0.264" />
+        <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/fragment_details.xml" value="0.2" />
         <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/fragment_list_city.xml" value="0.25416666666666665" />
         <entry key="..\:/LapTrinhDiDong/WeatherAppMobile/WeatherApp/app/src/main/res/layout/hourly_item.xml" value="0.1" />
         <entry key="..\:/ad/doan/WeatherAppMobile/WeatherApp/app/src/main/res/layout/activity_main.xml" value="0.10989583333333333" />

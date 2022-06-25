@@ -21,16 +21,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <ProgressBar
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:id="@+id/ic_progress_bar"
-                android:layout_marginTop="5dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                />
 
 
 
@@ -84,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layoutDirection="ltr"
-                    android:text="C"
+                    android:text="°C"
                     android:textColor="@color/white"
                     android:textSize="30sp"
                     app:layout_constraintStart_toEndOf="@+id/tvTemp"
@@ -356,7 +346,7 @@
                 tools:itemCount="5"
                 tools:listitem="@layout/hourly_item"
                 tools:layoutManager="GridLayoutManager"
-                tools:spanCount="5" />
+                tools:spanCount="24" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvDaily"
@@ -369,7 +359,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rvHourly"
-                tools:itemCount="5" />
+                tools:itemCount="8" />
 
             <TextView
                 android:id="@+id/tvCurrentAddress"
@@ -381,7 +371,7 @@
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:singleLine="true"
-                android:text="@{daylydata.timezone}"
+                android:text="@{daylydata.cityName}"
                 android:fontFamily="@font/ubuntu_bold"
                 android:textColor="@color/white"
                 android:textSize="20sp"
