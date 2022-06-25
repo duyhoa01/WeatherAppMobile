@@ -38,11 +38,11 @@
             android:text="Scuttered Clouds"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/tvDailyMaxMinTemp"
+            app:layout_constraintEnd_toStartOf="@+id/tvDailyTemp"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvDailyMaxMinTemp"
+            android:id="@+id/tvDailyTemp"
             android:layout_width="76dp"
             android:layout_height="wrap_content"
             android:singleLine="true"

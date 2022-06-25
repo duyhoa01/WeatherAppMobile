@@ -13,7 +13,17 @@ import java.util.List;
 @Entity(tableName = "dayly_data")
 public class Daylydata {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    private int key;
+
+    public int getKey() {
+        return key;
+    }
+
+    public void setKey(int key) {
+        this.key = key;
+    }
+
     @NonNull
     @SerializedName("lat")
     private String lat;
@@ -39,7 +49,19 @@ public class Daylydata {
     @SerializedName("daily")
     private List<Daily> daily;
 
-
+    @Override
+    public String toString() {
+        return "Daylydata{" +
+                "key=" + key +
+                ", lat='" + lat + '\'' +
+                ", lon='" + lon + '\'' +
+                ", timezone='" + timezone + '\'' +
+                ", timezone_offset='" + timezone_offset + '\'' +
+                ", current=" + current +
+                ", hourly=" + hourly +
+                ", daily=" + daily +
+                '}';
+    }
 
     public String getLat() {
         return lat;
@@ -110,6 +132,54 @@ public class Daylydata {
         private  String eve;
         @SerializedName("morn")
         private  String morn;
+
+        public String getDay() {
+            return day;
+        }
+
+        public void setDay(String day) {
+            this.day = day;
+        }
+
+        public String getMin() {
+            return min;
+        }
+
+        public void setMin(String min) {
+            this.min = min;
+        }
+
+        public String getMax() {
+            return max;
+        }
+
+        public void setMax(String max) {
+            this.max = max;
+        }
+
+        public String getNight() {
+            return night;
+        }
+
+        public void setNight(String night) {
+            this.night = night;
+        }
+
+        public String getEve() {
+            return eve;
+        }
+
+        public void setEve(String eve) {
+            this.eve = eve;
+        }
+
+        public String getMorn() {
+            return morn;
+        }
+
+        public void setMorn(String morn) {
+            this.morn = morn;
+        }
     }
 
     public class Feels_like{
@@ -201,6 +271,18 @@ public class Daylydata {
         private String wind_gust;
         @SerializedName("pop")
         private String pop;
+
+        @TypeConverters(WeatherConverter.class)
+        @SerializedName("weather")
+        private List<Weather> weather;
+
+        public List<Weather> getWeather() {
+            return weather;
+        }
+
+        public void setWeather(List<Weather> weather) {
+            this.weather = weather;
+        }
 
         @Override
         public String toString() {
@@ -697,8 +779,3 @@ public class Daylydata {
                     '}';
         }
     }
-
-
-
-}
-
