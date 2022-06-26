@@ -48,7 +48,7 @@ public class DetailsFragment extends Fragment {
     private Daylydata dailydata;
     private FragmentDetailsBinding binding;
     private WeatherApiService dataApiService;
-    private String nameCity="HaNoi";
+    private String nameCity="Da Nang";
     private String key="7b0df47e7b9398060bba4ba9fb314856";
     public String lat;
     public String lon;
@@ -109,7 +109,8 @@ public class DetailsFragment extends Fragment {
                                             @RequiresApi(api = Build.VERSION_CODES.O)
                                             @Override
                                             public void run() {
-                                                itemDAO.nukeTable();
+//                                                itemDAO.nukeTable();
+                                                itemDAO.deleteDaylyDataByLatLon(lat,lon);
                                                 Daylydata.Current c = daylydata.getCurrent();
                                                 c.setTemp(Math.round(Float.parseFloat(daylydata.getCurrent().getTemp())-273)+"");
 
@@ -123,11 +124,12 @@ public class DetailsFragment extends Fragment {
                                                 daylydata.setCurrent(c);
                                                 daylydata.setCityName(nameCity);
                                                 itemDAO.Insert(daylydata);
-                                                List<Daylydata> daylydata1 = itemDAO.getDogs();
-                                                for (Daylydata d : daylydata1) {
-                                                    System.out.println("Main: " + d.getCurrent().getWeather().get(0).getMain());
-                                                    dailydata=d;
-                                                }
+//                                                List<Daylydata> daylydata1 = itemDAO.getDogs();
+//                                                for (Daylydata d : daylydata1) {
+//                                                    System.out.println("Main: " + d.getCurrent().getWeather().get(0).getMain());
+//                                                    dailydata=d;
+//                                                }
+                                                dailydata=itemDAO.getDalyDataOfCity(lat,lon);
 
                                                 binding.setDaylydata(dailydata);
                                                 dailys.clear();
@@ -164,7 +166,36 @@ public class DetailsFragment extends Fragment {
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        System.out.println("ko co thanh pho: " + e.getMessage());
+                        AsyncTask.execute(new Runnable() {
+                            @Override
+                            public void run() {
+                                System.out.println("ko co thanh pho: " + e.getMessage());
+                                dailydata=itemDAO.getDalyDataOfCity("21.0245","105.8412");
+
+                                binding.setDaylydata(dailydata);
+                                dailys.clear();
+                                getActivity().runOnUiThread(new Runnable() {
+
+                                    @Override
+                                    public void run() {
+
+                                        for(Daylydata.Daily d : dailydata.getDaily()){
+                                            d.getTemp().setDay(Math.round(Float.parseFloat(d.getTemp().getDay())-273)+"°C");
+                                            dailys.add(d);
+                                            dailyAdapter.notifyDataSetChanged();
+                                        }
+                                        hourlys.clear();
+                                        for(Daylydata.Hourly d : dailydata.getHourly()){
+                                            d.setTemp(Math.round(Float.parseFloat(d.getTemp())-273)+"");
+                                            hourlys.add(d);
+                                            hourlyAdapter.notifyDataSetChanged();
+                                        }
+
+                                    }
+                                });
+                            }
+                        });
+
                     }
                 });
     }

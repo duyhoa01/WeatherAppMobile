@@ -127,7 +127,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="8dp"
-                            android:text="@{daylydata.current.pressure}"
+                            android:text="@{daylydata.current.pressure + `hPa`}"
                             android:textColor="@color/white" />
 
                         <TextView
@@ -157,7 +157,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="8dp"
-                            android:text="@{daylydata.current.humidity}"
+                            android:text="@{daylydata.current.humidity + `%`}"
                             android:textColor="@color/white" />
 
                         <TextView
@@ -187,7 +187,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="8dp"
-                            android:text="@{daylydata.current.wind_speed}"
+                            android:text="@{daylydata.current.wind_speed + `m/s`}"
                             android:textColor="@color/white" />
 
                         <TextView
@@ -230,7 +230,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="8dp"
-                            android:text="@{daylydata.current.clouds}"
+                            android:text="@{daylydata.current.clouds + `%`}"
                             android:textColor="@color/white" />
 
                         <TextView
@@ -291,7 +291,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="8dp"
-                            android:text="@{daylydata.current.visibility}"
+                            android:text="@{daylydata.current.visibility + `m`}"
                             android:textColor="@color/white" />
 
                         <TextView

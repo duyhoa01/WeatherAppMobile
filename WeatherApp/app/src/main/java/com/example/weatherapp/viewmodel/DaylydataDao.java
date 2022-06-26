@@ -24,4 +24,12 @@ public interface DaylydataDao {
     @Query("DELETE FROM dayly_data")
     public void nukeTable();
 
+    @Query("SELECT * FROM dayly_data WHERE lat= :lat and lon= :lon")
+    public Daylydata getDalyDataOfCity(String lat,String lon);
+
+    @Query("DELETE FROM dayly_data WHERE lat= :lat and lon= :lon")
+    public void deleteDaylyDataByLatLon(String lat,String lon);
+
+
+
 }
