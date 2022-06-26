@@ -19,7 +19,10 @@ import android.widget.SearchView;
 import java.util.ArrayList;
 
 import com.example.weatherapp.databinding.ActivityMainBinding;
+<<<<<<< HEAD
 import com.example.weatherapp.model.CityBreed;
+=======
+>>>>>>> 616569f255264fc7335609f1429c78f2a98b328b
 import com.example.weatherapp.model.CurrentData;
 import com.example.weatherapp.model.Daylydata;
 import com.example.weatherapp.model.LatLonData;
@@ -39,6 +42,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
+<<<<<<< HEAD
 
     Button btnDelete;
     private ActivityMainBinding binding;
@@ -58,9 +62,20 @@ public class MainActivity extends AppCompatActivity {
     private AppDatabase appDatabase;
     private DaylydataDao itemDAO;
     private Context context;
+=======
+    private ActivityMainBinding binding;
+>>>>>>> 616569f255264fc7335609f1429c78f2a98b328b
 
+
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu_search, menu);
+//        return true;
+//    }
 
     @Override
+<<<<<<< HEAD
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_search, menu);
 
@@ -86,10 +101,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override protected void onCreate(Bundle savedInstanceState) {
+=======
+    protected void onCreate(Bundle savedInstanceState) {
+>>>>>>> 616569f255264fc7335609f1429c78f2a98b328b
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+<<<<<<< HEAD
         addControls();
 
         context=this;
@@ -146,6 +165,8 @@ public class MainActivity extends AppCompatActivity {
                                         }
                                     });
                         }
+=======
+>>>>>>> 616569f255264fc7335609f1429c78f2a98b328b
 
                         @Override
                         public void onError(@NonNull Throwable e) {

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+<data>
+    <variable name="daylydata" type="com.example.weatherapp.model.Daylydata"/>
+</data>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
     android:id="@+id/swip_reference"
     android:layout_width="match_parent"
     android:background="@color/colorPrimary"
@@ -14,19 +17,10 @@
 
         android:background="@color/colorPrimary"
         android:layout_height="match_parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <ProgressBar
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:id="@+id/ic_progress_bar"
-                android:layout_marginTop="5dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                />
 
 
 
@@ -49,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:gravity="center"
-                    android:text=" "
+                    android:text="@{daylydata.current.weather.get(0).description}"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toTopOf="@+id/tvTemp"
@@ -64,7 +58,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/spartan"
                     android:gravity="center"
-                    android:text=" "
+                    android:text="@{daylydata.current.temp}"
                     android:textColor="@color/white"
                     android:textSize="85sp"
                     android:textStyle="bold"
@@ -80,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layoutDirection="ltr"
-                    android:text=" "
+                    android:text="°C"
                     android:textColor="@color/white"
                     android:textSize="30sp"
                     app:layout_constraintStart_toEndOf="@+id/tvTemp"
@@ -133,7 +127,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="8dp"
-                            android:text=" "
+                            android:text="@{daylydata.current.pressure + `hPa`}"
                             android:textColor="@color/white" />
 
                         <TextView
@@ -163,7 +157,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="8dp"
-                            android:text=" "
+                            android:text="@{daylydata.current.humidity + `%`}"
                             android:textColor="@color/white" />
 
                         <TextView
@@ -193,7 +187,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="8dp"
-                            android:text=" "
+                            android:text="@{daylydata.current.wind_speed + `m/s`}"
                             android:textColor="@color/white" />
 
                         <TextView
@@ -236,7 +230,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="8dp"
-                            android:text=" "
+                            android:text="@{daylydata.current.clouds + `%`}"
                             android:textColor="@color/white" />
 
                         <TextView
@@ -266,7 +260,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="8dp"
-                            android:text=" "
+                            android:text="@{daylydata.current.uvi}"
                             android:textColor="@color/white" />
 
                         <TextView
@@ -297,7 +291,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="8dp"
-                            android:text=" "
+                            android:text="@{daylydata.current.visibility + `m`}"
                             android:textColor="@color/white" />
 
                         <TextView
@@ -331,7 +325,7 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="32dp"
                 android:gravity="center"
-                android:text=" "
+                android:text="@{daylydata.current.dt}"
                 android:textColor="@color/light_gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -349,10 +343,10 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/currentTempLayout"
-                tools:itemCount="3"
+                tools:itemCount="5"
                 tools:listitem="@layout/hourly_item"
                 tools:layoutManager="GridLayoutManager"
-                tools:spanCount="5" />
+                tools:spanCount="24" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvDaily"
@@ -365,7 +359,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rvHourly"
-                tools:itemCount="5" />
+                tools:itemCount="8" />
 
             <TextView
                 android:id="@+id/tvCurrentAddress"
@@ -377,7 +371,7 @@
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:singleLine="true"
-                android:text="Đà Nẵng"
+                android:text="@{daylydata.cityName}"
                 android:fontFamily="@font/ubuntu_bold"
                 android:textColor="@color/white"
                 android:textSize="20sp"
@@ -411,3 +405,4 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>
