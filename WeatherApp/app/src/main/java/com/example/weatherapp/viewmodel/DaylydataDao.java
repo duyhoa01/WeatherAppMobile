@@ -23,5 +23,4 @@ public interface DaylydataDao {
 
     @Query("DELETE FROM dayly_data")
     public void nukeTable();
-
 }

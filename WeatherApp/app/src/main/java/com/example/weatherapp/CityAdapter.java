@@ -9,14 +9,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.weatherapp.model.CityBreed;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
-    private ArrayList<String> citys;
+    private List<CityBreed> cityBreeds;
 
-    public CityAdapter(ArrayList<String> citys) {
-        this.citys = citys;
+    public CityAdapter(List<CityBreed> cityBreeds) {
+        this.cityBreeds = cityBreeds;
     }
+
 
     @NonNull
     @Override
@@ -29,12 +33,24 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CityAdapter.ViewHolder holder, int position) {
-        holder.tvNameCity.setText(citys.get(position));
+        holder.tvNameCity.setText(cityBreeds.get(position).getName());
+        holder.tvDailyDescription.setText(cityBreeds.get(position).getDescription());
+        holder.tvTemperature.setText(cityBreeds.get(position).getTemperature());
+
+        if (cityBreeds.get(position).getDescription().equals("Rain")) {
+            holder.ivDailyIcon.setImageResource(R.drawable.humidity);
+        }
+        else if (cityBreeds.get(position).getDescription().equals("Sunny")) {
+            holder.ivDailyIcon.setImageResource(R.drawable.clear_day_24);
+        }
+        else if (cityBreeds.get(position).getDescription().equals("Clouds")) {
+            holder.ivDailyIcon.setImageResource(R.drawable.cloud);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return citys.size();
+        return cityBreeds.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
