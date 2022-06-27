@@ -55,6 +55,35 @@ public class DailyAdapter extends RecyclerView.Adapter<DailyAdapter.ViewHolder>{
         holder.tvDailyTemp.setText(dailys.get(position).getTemp().getDay());
         holder.tvDailyDescription.setText(dailys.get(position).getWeather().get(0).getDescription());
         holder.tvDailyWeekDay.setText(formattedDtm);
+        switch (dailys.get(position).getWeather().get(0).getIcon()){
+            case "01d":
+                holder.ivDailyIcon.setImageResource(R.drawable._01d);
+                break;
+            case "02d":
+                holder.ivDailyIcon.setImageResource(R.drawable._02d);
+                break;
+            case "03d":
+                holder.ivDailyIcon.setImageResource(R.drawable._03d);
+                break;
+            case "04d":
+                holder.ivDailyIcon.setImageResource(R.drawable._04d);
+                break;
+            case "09d":
+                holder.ivDailyIcon.setImageResource(R.drawable._09d);
+                break;
+            case "10d":
+                holder.ivDailyIcon.setImageResource(R.drawable._10d);
+                break;
+            case "11d":
+                holder.ivDailyIcon.setImageResource(R.drawable._11d);
+                break;
+            case "13d":
+                holder.ivDailyIcon.setImageResource(R.drawable._13d);
+                break;
+            case "50d":
+                holder.ivDailyIcon.setImageResource(R.drawable._50d);
+                break;
+        }
     }
 
     @Override

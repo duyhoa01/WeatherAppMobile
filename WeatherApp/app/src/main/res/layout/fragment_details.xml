@@ -5,7 +5,7 @@
 <data>
     <variable name="daylydata" type="com.example.weatherapp.model.Daylydata"/>
 </data>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    <LinearLayout
     android:id="@+id/swip_reference"
     android:layout_width="match_parent"
     android:background="@color/colorPrimary"
@@ -312,6 +312,7 @@
                 android:layout_width="125dp"
                 android:layout_height="125dp"
                 android:translationY="-62dp"
+                android:src="@drawable/_01d"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -404,5 +405,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </LinearLayout>
 </layout>

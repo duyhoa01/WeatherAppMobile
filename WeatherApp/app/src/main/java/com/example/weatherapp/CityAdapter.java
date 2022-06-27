@@ -43,14 +43,45 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
         holder.tvDailyDescription.setText(cityBreeds.get(position).getDescription());
         holder.tvTemperature.setText(cityBreeds.get(position).getTemperature());
 
-        if (cityBreeds.get(position).getDescription().equals("Rain")) {
-            holder.ivDailyIcon.setImageResource(R.drawable.humidity);
-        }
-        else if (cityBreeds.get(position).getDescription().equals("Sunny")) {
-            holder.ivDailyIcon.setImageResource(R.drawable.clear_day_24);
-        }
-        else if (cityBreeds.get(position).getDescription().equals("Clouds")) {
-            holder.ivDailyIcon.setImageResource(R.drawable.cloud);
+//        if (cityBreeds.get(position).getDescription().equals("Rain")) {
+//            holder.ivDailyIcon.setImageResource(R.drawable.);
+//        }
+//        else if (cityBreeds.get(position).getDescription().equals("Sunny")) {
+//            holder.ivDailyIcon.setImageResource(R.drawable.clear_day_24);
+//        }
+//        else if (cityBreeds.get(position).getDescription().equals("Clouds")) {
+//            holder.ivDailyIcon.setImageResource(R.drawable.cloud);
+//        }
+
+
+        switch (cityBreeds.get(position).getDescription().toString()){
+            case "Sunny":
+                holder.ivDailyIcon.setImageResource(R.drawable._01d);
+                break;
+            case "02d":
+                holder.ivDailyIcon.setImageResource(R.drawable._02d);
+                break;
+            case "Clouds":
+                holder.ivDailyIcon.setImageResource(R.drawable._03d);
+                break;
+            case "04d":
+                holder.ivDailyIcon.setImageResource(R.drawable._04d);
+                break;
+            case "Rain":
+                holder.ivDailyIcon.setImageResource(R.drawable._09d);
+                break;
+            case "10d":
+                holder.ivDailyIcon.setImageResource(R.drawable._10d);
+                break;
+            case "11d":
+                holder.ivDailyIcon.setImageResource(R.drawable._11d);
+                break;
+            case "13d":
+                holder.ivDailyIcon.setImageResource(R.drawable._13d);
+                break;
+            case "50d":
+                holder.ivDailyIcon.setImageResource(R.drawable._50d);
+                break;
         }
 
         CityBreed a = new CityBreed(cityBreeds.get(position).getName(),cityBreeds.get(position).getDescription(),cityBreeds.get(position).getTemperature());

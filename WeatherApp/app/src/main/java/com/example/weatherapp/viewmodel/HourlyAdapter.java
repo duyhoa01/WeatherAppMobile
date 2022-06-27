@@ -46,9 +46,37 @@ public class HourlyAdapter extends RecyclerView.Adapter<HourlyAdapter.ViewHolder
         final String formattedDtm = Instant.ofEpochSecond(unixTime)
                 .atZone(ZoneId.of("GMT+7"))
                 .format(formatter);
-        holder.tvHourlyTemp.setText(hourlies.get(position).getTemp());
-//        holder.tvDailyDescription.setText(hourlies.get(position).getWeather().get(0).getDescription());
         holder.tvHourlyTime.setText(formattedDtm);
+        holder.tvHourlyTemp.setText(hourlies.get(position).getTemp());
+        switch (hourlies.get(position).getWeather().get(0).getIcon()){
+            case "01d":
+                holder.ivHourlyIcon.setImageResource(R.drawable._01d);
+                break;
+            case "02d":
+                holder.ivHourlyIcon.setImageResource(R.drawable._02d);
+                break;
+            case "03d":
+                holder.ivHourlyIcon.setImageResource(R.drawable._03d);
+                break;
+            case "04d":
+                holder.ivHourlyIcon.setImageResource(R.drawable._04d);
+                break;
+            case "09d":
+                holder.ivHourlyIcon.setImageResource(R.drawable._09d);
+                break;
+            case "10d":
+                holder.ivHourlyIcon.setImageResource(R.drawable._10d);
+                break;
+            case "11d":
+                holder.ivHourlyIcon.setImageResource(R.drawable._11d);
+                break;
+            case "13d":
+                holder.ivHourlyIcon.setImageResource(R.drawable._13d);
+                break;
+            case "50d":
+                holder.ivHourlyIcon.setImageResource(R.drawable._50d);
+                break;
+        }
     }
 
     @Override
