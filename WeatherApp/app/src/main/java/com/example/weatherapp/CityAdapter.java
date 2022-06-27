@@ -127,7 +127,7 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
                 public void onClick(View view) {
                     CityBreed citys = cityBreeds.get(getAdapterPosition());
                     Bundle bundle=new Bundle();
-                    bundle.putSerializable("namecity",citys.getName());
+                    bundle.putSerializable("keyword",citys.getName()+"-"+citys.getLat()+"-"+citys.getLon());
                     Navigation.findNavController(view).navigate(R.id.detailsFragment,bundle);
                 }
             });

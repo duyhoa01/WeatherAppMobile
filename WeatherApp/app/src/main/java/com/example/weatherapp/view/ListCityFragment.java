@@ -24,6 +24,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.example.weatherapp.CityAdapter;
 import com.example.weatherapp.Database.CityDatabase;
@@ -116,6 +117,7 @@ public class ListCityFragment extends Fragment {
                             @Override
                             public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
                                 System.out.println("Không có thành phố : "+e.getMessage());
+                                Toast.makeText(getContext(),"Không tìm thấy thành phố!", Toast.LENGTH_LONG).show();
                             }
                         });
                 return false;
