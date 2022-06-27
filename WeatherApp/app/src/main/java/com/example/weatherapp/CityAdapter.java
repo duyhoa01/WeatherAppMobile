@@ -53,33 +53,35 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
 //            holder.ivDailyIcon.setImageResource(R.drawable.cloud);
 //        }
 
-
-        switch (cityBreeds.get(position).getIdIcon().toString()){
-            case "01d":
+        System.out.println(cityBreeds.get(position).getIdIcon());
+        String idIcon = cityBreeds.get(position).getIdIcon().substring(0,2);
+        System.out.println(idIcon);
+        switch (idIcon){
+            case "01":
                 holder.ivDailyIcon.setImageResource(R.drawable._01d);
                 break;
-            case "02d":
+            case "02":
                 holder.ivDailyIcon.setImageResource(R.drawable._02d);
                 break;
-            case "03d":
+            case "03":
                 holder.ivDailyIcon.setImageResource(R.drawable._03d);
                 break;
-            case "04d":
+            case "04":
                 holder.ivDailyIcon.setImageResource(R.drawable._04d);
                 break;
-            case "09d":
+            case "09":
                 holder.ivDailyIcon.setImageResource(R.drawable._09d);
                 break;
-            case "10d":
+            case "10":
                 holder.ivDailyIcon.setImageResource(R.drawable._10d);
                 break;
-            case "11d":
+            case "11":
                 holder.ivDailyIcon.setImageResource(R.drawable._11d);
                 break;
-            case "13d":
+            case "13":
                 holder.ivDailyIcon.setImageResource(R.drawable._13d);
                 break;
-            case "50d":
+            case "50":
                 holder.ivDailyIcon.setImageResource(R.drawable._50d);
                 break;
         }

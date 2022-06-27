@@ -48,32 +48,33 @@ public class HourlyAdapter extends RecyclerView.Adapter<HourlyAdapter.ViewHolder
                 .format(formatter);
         holder.tvHourlyTime.setText(formattedDtm);
         holder.tvHourlyTemp.setText(hourlies.get(position).getTemp());
-        switch (hourlies.get(position).getWeather().get(0).getIcon()){
-            case "01d":
+        String icon = hourlies.get(position).getWeather().get(0).getIcon().substring(0,2);
+        switch (icon){
+            case "01":
                 holder.ivHourlyIcon.setImageResource(R.drawable._01d);
                 break;
-            case "02d":
+            case "02":
                 holder.ivHourlyIcon.setImageResource(R.drawable._02d);
                 break;
-            case "03d":
+            case "03":
                 holder.ivHourlyIcon.setImageResource(R.drawable._03d);
                 break;
-            case "04d":
+            case "04":
                 holder.ivHourlyIcon.setImageResource(R.drawable._04d);
                 break;
-            case "09d":
+            case "09":
                 holder.ivHourlyIcon.setImageResource(R.drawable._09d);
                 break;
-            case "10d":
+            case "10":
                 holder.ivHourlyIcon.setImageResource(R.drawable._10d);
                 break;
-            case "11d":
+            case "11":
                 holder.ivHourlyIcon.setImageResource(R.drawable._11d);
                 break;
-            case "13d":
+            case "13":
                 holder.ivHourlyIcon.setImageResource(R.drawable._13d);
                 break;
-            case "50d":
+            case "50":
                 holder.ivHourlyIcon.setImageResource(R.drawable._50d);
                 break;
         }
