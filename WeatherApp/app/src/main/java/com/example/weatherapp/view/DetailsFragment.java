@@ -51,10 +51,10 @@ public class DetailsFragment extends Fragment {
     private Daylydata dailydata;
     private FragmentDetailsBinding binding;
     private WeatherApiService dataApiService;
-    private String nameCity="Da Nang";
+    private String nameCity="Mountain View";
     private String key="7b0df47e7b9398060bba4ba9fb314856";
-    public String lat;
-    public String lon;
+    public String lat = "37.3861";
+    public String lon = "-122.0838";
     private DailyAdapter dailyAdapter;
     private HourlyAdapter hourlyAdapter;
     private RecyclerView rvDailys;
@@ -69,7 +69,11 @@ public class DetailsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            nameCity= (String) getArguments().getSerializable("namecity");
+            String keyword = (String) getArguments().getSerializable("keyword");
+            String[] listkey = keyword.split("-");
+            nameCity = listkey[0];
+            lat = listkey[1];
+            lon = listkey[2];
         }
     }
 
@@ -127,39 +131,36 @@ public class DetailsFragment extends Fragment {
                                                 daylydata.setCurrent(c);
                                                 daylydata.setCityName(nameCity);
                                                 itemDAO.Insert(daylydata);
-//                                                List<Daylydata> daylydata1 = itemDAO.getDogs();
-//                                                for (Daylydata d : daylydata1) {
-//                                                    System.out.println("Main: " + d.getCurrent().getWeather().get(0).getMain());
-//                                                    dailydata=d;
-//                                                }
+
                                                 dailydata=itemDAO.getDalyDataOfCity(lat,lon);
                                                 binding.setDaylydata(dailydata);
-                                                switch (dailydata.getCurrent().getWeather().get(0).getIcon()){
-                                                    case "01d":
+                                                String icon = dailydata.getCurrent().getWeather().get(0).getIcon().substring(0,2);
+                                                switch (icon){
+                                                    case "01":
                                                         binding.ivIcon.setImageResource(R.drawable._01d);
                                                         break;
-                                                    case "02d":
+                                                    case "02":
                                                         binding.ivIcon.setImageResource(R.drawable._02d);
                                                         break;
-                                                    case "03d":
+                                                    case "03":
                                                         binding.ivIcon.setImageResource(R.drawable._03d);
                                                         break;
-                                                    case "04d":
+                                                    case "04":
                                                         binding.ivIcon.setImageResource(R.drawable._04d);
                                                         break;
-                                                    case "09d":
+                                                    case "09":
                                                         binding.ivIcon.setImageResource(R.drawable._09d);
                                                         break;
-                                                    case "10d":
+                                                    case "10":
                                                         binding.ivIcon.setImageResource(R.drawable._10d);
                                                         break;
-                                                    case "11d":
+                                                    case "11":
                                                         binding.ivIcon.setImageResource(R.drawable._11d);
                                                         break;
-                                                    case "13d":
+                                                    case "13":
                                                         binding.ivIcon.setImageResource(R.drawable._13d);
                                                         break;
-                                                    case "50d":
+                                                    case "50":
                                                         binding.ivIcon.setImageResource(R.drawable._50d);
                                                         break;
                                                 }
@@ -202,35 +203,36 @@ public class DetailsFragment extends Fragment {
                             @Override
                             public void run() {
                                 System.out.println("ko co thanh pho: " + e.getMessage());
-                                dailydata=itemDAO.getDalyDataOfCity("21.0245","105.8412");
+                                dailydata=itemDAO.getDalyDataOfCity(lat,lon);
 
                                 binding.setDaylydata(dailydata);
-                                switch (dailydata.getCurrent().getWeather().get(0).getIcon()){
-                                    case "01d":
+                                String icon = dailydata.getCurrent().getWeather().get(0).getIcon().substring(0,2);
+                                switch (icon){
+                                    case "01":
                                         binding.ivIcon.setImageResource(R.drawable._01d);
                                         break;
-                                    case "02d":
+                                    case "02":
                                         binding.ivIcon.setImageResource(R.drawable._02d);
                                         break;
-                                    case "03d":
+                                    case "03":
                                         binding.ivIcon.setImageResource(R.drawable._03d);
                                         break;
-                                    case "04d":
+                                    case "04":
                                         binding.ivIcon.setImageResource(R.drawable._04d);
                                         break;
-                                    case "09d":
+                                    case "09":
                                         binding.ivIcon.setImageResource(R.drawable._09d);
                                         break;
-                                    case "10d":
+                                    case "10":
                                         binding.ivIcon.setImageResource(R.drawable._10d);
                                         break;
-                                    case "11d":
+                                    case "11":
                                         binding.ivIcon.setImageResource(R.drawable._11d);
                                         break;
-                                    case "13d":
+                                    case "13":
                                         binding.ivIcon.setImageResource(R.drawable._13d);
                                         break;
-                                    case "50d":
+                                    case "50":
                                         binding.ivIcon.setImageResource(R.drawable._50d);
                                         break;
                                 }
@@ -267,6 +269,69 @@ public class DetailsFragment extends Fragment {
         binding = DataBindingUtil.inflate(getLayoutInflater(),
                 R.layout.fragment_details, null, false);
         View viewRoot = binding.getRoot();
+        binding.btnGps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("gps");
+                AsyncTask.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        dailydata=itemDAO.getDalyDataOfCity("37.3861","-122.0838");
+                        System.out.println(dailydata);
+                        binding.setDaylydata(dailydata);
+                        switch (dailydata.getCurrent().getWeather().get(0).getIcon()){
+                            case "01":
+                                binding.ivIcon.setImageResource(R.drawable._01d);
+                                break;
+                            case "02":
+                                binding.ivIcon.setImageResource(R.drawable._02d);
+                                break;
+                            case "03":
+                                binding.ivIcon.setImageResource(R.drawable._03d);
+                                break;
+                            case "04":
+                                binding.ivIcon.setImageResource(R.drawable._04d);
+                                break;
+                            case "09":
+                                binding.ivIcon.setImageResource(R.drawable._09d);
+                                break;
+                            case "10":
+                                binding.ivIcon.setImageResource(R.drawable._10d);
+                                break;
+                            case "11":
+                                binding.ivIcon.setImageResource(R.drawable._11d);
+                                break;
+                            case "13":
+                                binding.ivIcon.setImageResource(R.drawable._13d);
+                                break;
+                            case "50":
+                                binding.ivIcon.setImageResource(R.drawable._50d);
+                                break;
+                        }
+                        dailys.clear();
+                        getActivity().runOnUiThread(new Runnable() {
+
+                            @Override
+                            public void run() {
+
+                                for(Daylydata.Daily d : dailydata.getDaily()){
+                                    d.getTemp().setDay(Math.round(Float.parseFloat(d.getTemp().getDay())-273)+"°C");
+                                    dailys.add(d);
+                                    dailyAdapter.notifyDataSetChanged();
+                                }
+                                hourlys.clear();
+                                for(Daylydata.Hourly d : dailydata.getHourly()){
+                                    d.setTemp(Math.round(Float.parseFloat(d.getTemp())-273)+"");
+                                    hourlys.add(d);
+                                    hourlyAdapter.notifyDataSetChanged();
+                                }
+
+                            }
+                        });
+                    }
+                });
+            }
+        });
         binding.btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
