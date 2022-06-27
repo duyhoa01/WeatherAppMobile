@@ -17,9 +17,9 @@
 
 **Screenshot**
 
-<p align="center"><img src="image/detail1.png" /></p> 
-<p align="center"><img src="image/detail2.png" /></p> 
-<p align="center"><img src="image/listcity.png" /></p> 
+<p align="center"><img src="image/detail1.jpg" /></p> 
+<p align="center"><img src="image/detail2.jpg" /></p> 
+<p align="center"><img src="image/listcity.jpg" /></p> 
 
 **Libraries & Dependencies**
 - [Support libraries]: recyclerview / linearlayout
