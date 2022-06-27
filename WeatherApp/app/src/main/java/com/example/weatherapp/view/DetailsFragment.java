@@ -2,6 +2,7 @@ package com.example.weatherapp.view;
 
 import android.app.Activity;
 import android.app.NativeActivity;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -84,7 +85,7 @@ public class DetailsFragment extends Fragment {
         rvDailys.setAdapter(dailyAdapter);
         rvHourlys.setAdapter(hourlyAdapter);
         rvDailys.setLayoutManager(new GridLayoutManager(getContext(),1));
-        LinearLayoutManager ln = new LinearLayoutManager(getActivity());
+        LinearLayoutManager ln = new LinearLayoutManager(getContext());
         ln.setOrientation(LinearLayoutManager.HORIZONTAL);
         rvHourlys.setLayoutManager(ln);
         appDatabase = AppDatabase.getInstance(getContext());
@@ -108,8 +109,8 @@ public class DetailsFragment extends Fragment {
                                     @Override
                                     public void onSuccess(@NonNull Daylydata daylydata) {
                                         AsyncTask.execute(new Runnable() {
-                                            @RequiresApi(api = Build.VERSION_CODES.O)
                                             @Override
+                                            @RequiresApi(api = Build.VERSION_CODES.O)
                                             public void run() {
 //                                                itemDAO.nukeTable();
                                                 itemDAO.deleteDaylyDataByLatLon(lat,lon);
@@ -132,9 +133,38 @@ public class DetailsFragment extends Fragment {
 //                                                    dailydata=d;
 //                                                }
                                                 dailydata=itemDAO.getDalyDataOfCity(lat,lon);
-
                                                 binding.setDaylydata(dailydata);
+                                                switch (dailydata.getCurrent().getWeather().get(0).getIcon()){
+                                                    case "01d":
+                                                        binding.ivIcon.setImageResource(R.drawable._01d);
+                                                        break;
+                                                    case "02d":
+                                                        binding.ivIcon.setImageResource(R.drawable._02d);
+                                                        break;
+                                                    case "03d":
+                                                        binding.ivIcon.setImageResource(R.drawable._03d);
+                                                        break;
+                                                    case "04d":
+                                                        binding.ivIcon.setImageResource(R.drawable._04d);
+                                                        break;
+                                                    case "09d":
+                                                        binding.ivIcon.setImageResource(R.drawable._09d);
+                                                        break;
+                                                    case "10d":
+                                                        binding.ivIcon.setImageResource(R.drawable._10d);
+                                                        break;
+                                                    case "11d":
+                                                        binding.ivIcon.setImageResource(R.drawable._11d);
+                                                        break;
+                                                    case "13d":
+                                                        binding.ivIcon.setImageResource(R.drawable._13d);
+                                                        break;
+                                                    case "50d":
+                                                        binding.ivIcon.setImageResource(R.drawable._50d);
+                                                        break;
+                                                }
                                                 dailys.clear();
+                                                hourlys.clear();
                                                 getActivity().runOnUiThread(new Runnable() {
 
                                                     @Override
@@ -145,7 +175,7 @@ public class DetailsFragment extends Fragment {
                                                             dailys.add(d);
                                                             dailyAdapter.notifyDataSetChanged();
                                                         }
-                                                        hourlys.clear();
+
                                                         for(Daylydata.Hourly d : dailydata.getHourly()){
                                                             d.setTemp(Math.round(Float.parseFloat(d.getTemp())-273)+"");
                                                             hourlys.add(d);
@@ -175,6 +205,35 @@ public class DetailsFragment extends Fragment {
                                 dailydata=itemDAO.getDalyDataOfCity("21.0245","105.8412");
 
                                 binding.setDaylydata(dailydata);
+                                switch (dailydata.getCurrent().getWeather().get(0).getIcon()){
+                                    case "01d":
+                                        binding.ivIcon.setImageResource(R.drawable._01d);
+                                        break;
+                                    case "02d":
+                                        binding.ivIcon.setImageResource(R.drawable._02d);
+                                        break;
+                                    case "03d":
+                                        binding.ivIcon.setImageResource(R.drawable._03d);
+                                        break;
+                                    case "04d":
+                                        binding.ivIcon.setImageResource(R.drawable._04d);
+                                        break;
+                                    case "09d":
+                                        binding.ivIcon.setImageResource(R.drawable._09d);
+                                        break;
+                                    case "10d":
+                                        binding.ivIcon.setImageResource(R.drawable._10d);
+                                        break;
+                                    case "11d":
+                                        binding.ivIcon.setImageResource(R.drawable._11d);
+                                        break;
+                                    case "13d":
+                                        binding.ivIcon.setImageResource(R.drawable._13d);
+                                        break;
+                                    case "50d":
+                                        binding.ivIcon.setImageResource(R.drawable._50d);
+                                        break;
+                                }
                                 dailys.clear();
                                 getActivity().runOnUiThread(new Runnable() {
 
