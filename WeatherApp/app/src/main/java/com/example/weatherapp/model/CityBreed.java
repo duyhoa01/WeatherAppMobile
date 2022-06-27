@@ -15,12 +15,45 @@ public class CityBreed {
     private String description;
     @SerializedName("temperature")
     private String temperature;
+    @SerializedName("lat")
+    private String lat;
+    @SerializedName("lon")
+    private String lon;
+    @SerializedName("idIcon")
+    private String idIcon;
 
-    public CityBreed(String name, String description, String temperature) {
+    public CityBreed(String name, String description, String temperature, String lat, String lon, String idIcon) {
         //this.id = id;
         this.name = name;
         this.description = description;
         this.temperature = temperature;
+        this.lat = lat;
+        this.lon = lon;
+        this.idIcon = idIcon;
+    }
+
+    public String getLat() {
+        return lat;
+    }
+
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
+
+    public String getLon() {
+        return lon;
+    }
+
+    public void setLon(String lon) {
+        this.lon = lon;
+    }
+
+    public String getIdIcon() {
+        return idIcon;
+    }
+
+    public void setIdIcon(String idIcon) {
+        this.idIcon = idIcon;
     }
 
     public int getId() {

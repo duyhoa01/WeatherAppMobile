@@ -88,14 +88,15 @@ public class ListCityFragment extends Fragment {
                                                 if (CityDatabase.getInstance(getContext()).cityDAO().getCity(s) == null){
                                                     float tC = Float.parseFloat(daylydata.getCurrent().getTemp()) - 273;
                                                     String status = daylydata.getCurrent().getWeather().get(0).getMain();
+                                                    String idCon = daylydata.getCurrent().getWeather().get(0).getIcon();
                                                     System.out.println("TP: "+ s);
-                                                    System.out.println("Trạng thái :" + status);
+                                                    System.out.println("Trạng thái :" + status + "-" + idCon);
                                                     int id = CityDatabase.getInstance(getContext()).cityDAO().getCount() + 1;
-                                                    CityBreed newCB = new CityBreed(s, status, String.valueOf(Math.round(tC)) + "°C");
+                                                    CityBreed newCB = new CityBreed(s, status, String.valueOf(Math.round(tC)) + "°C", lat, lon, idCon);
                                                     CityDatabase.getInstance(getContext()).cityDAO().insertCity(newCB);
                                                     System.out.println("Da them " + s);
                                                     Bundle bundle=new Bundle();
-                                                    bundle.putSerializable("namecity",s);
+                                                    bundle.putSerializable("keyword",s+"-"+lat+"-"+lon);
                                                     Navigation.findNavController(getView()).navigate(R.id.detailsFragment,bundle);
                                                     cityBreedList.add(newCB);
                                                     cityAdapter.notifyDataSetChanged();
