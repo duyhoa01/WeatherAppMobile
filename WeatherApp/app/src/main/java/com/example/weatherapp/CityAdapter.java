@@ -54,20 +54,20 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
 //        }
 
 
-        switch (cityBreeds.get(position).getDescription().toString()){
-            case "Sunny":
+        switch (cityBreeds.get(position).getIdIcon().toString()){
+            case "01d":
                 holder.ivDailyIcon.setImageResource(R.drawable._01d);
                 break;
             case "02d":
                 holder.ivDailyIcon.setImageResource(R.drawable._02d);
                 break;
-            case "Clouds":
+            case "03d":
                 holder.ivDailyIcon.setImageResource(R.drawable._03d);
                 break;
             case "04d":
                 holder.ivDailyIcon.setImageResource(R.drawable._04d);
                 break;
-            case "Rain":
+            case "09d":
                 holder.ivDailyIcon.setImageResource(R.drawable._09d);
                 break;
             case "10d":
@@ -84,7 +84,8 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
                 break;
         }
 
-        CityBreed a = new CityBreed(cityBreeds.get(position).getName(),cityBreeds.get(position).getDescription(),cityBreeds.get(position).getTemperature());
+        CityBreed a = new CityBreed(cityBreeds.get(position).getName(),cityBreeds.get(position).getDescription(),cityBreeds.get(position).getTemperature()
+        , cityBreeds.get(position).getLat(), cityBreeds.get(position).getLon(), cityBreeds.get(position).getIdIcon());
 
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
