@@ -143,7 +143,7 @@ public class Daylydata {
         @SerializedName("eve")
         private String eve;
         @SerializedName("morn")
-        private String morn;
+        private  String morn;
 
         public String getDay() {
             return day;

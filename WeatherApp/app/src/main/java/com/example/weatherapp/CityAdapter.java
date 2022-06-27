@@ -1,22 +1,32 @@
 package com.example.weatherapp;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.weatherapp.Database.CityDatabase;
+import com.example.weatherapp.model.CityBreed;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
-    private ArrayList<String> citys;
+    private static List<CityBreed> cityBreeds;
 
-    public CityAdapter(ArrayList<String> citys) {
-        this.citys = citys;
+    public CityAdapter(List<CityBreed> cityBreeds) {
+        this.cityBreeds = cityBreeds;
     }
+
 
     @NonNull
     @Override
@@ -29,16 +39,75 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CityAdapter.ViewHolder holder, int position) {
-        holder.tvNameCity.setText(citys.get(position));
+        holder.tvNameCity.setText(cityBreeds.get(position).getName());
+        holder.tvDailyDescription.setText(cityBreeds.get(position).getDescription());
+        holder.tvTemperature.setText(cityBreeds.get(position).getTemperature());
+
+//        if (cityBreeds.get(position).getDescription().equals("Rain")) {
+//            holder.ivDailyIcon.setImageResource(R.drawable.);
+//        }
+//        else if (cityBreeds.get(position).getDescription().equals("Sunny")) {
+//            holder.ivDailyIcon.setImageResource(R.drawable.clear_day_24);
+//        }
+//        else if (cityBreeds.get(position).getDescription().equals("Clouds")) {
+//            holder.ivDailyIcon.setImageResource(R.drawable.cloud);
+//        }
+
+
+        switch (cityBreeds.get(position).getDescription().toString()){
+            case "Sunny":
+                holder.ivDailyIcon.setImageResource(R.drawable._01d);
+                break;
+            case "02d":
+                holder.ivDailyIcon.setImageResource(R.drawable._02d);
+                break;
+            case "Clouds":
+                holder.ivDailyIcon.setImageResource(R.drawable._03d);
+                break;
+            case "04d":
+                holder.ivDailyIcon.setImageResource(R.drawable._04d);
+                break;
+            case "Rain":
+                holder.ivDailyIcon.setImageResource(R.drawable._09d);
+                break;
+            case "10d":
+                holder.ivDailyIcon.setImageResource(R.drawable._10d);
+                break;
+            case "11d":
+                holder.ivDailyIcon.setImageResource(R.drawable._11d);
+                break;
+            case "13d":
+                holder.ivDailyIcon.setImageResource(R.drawable._13d);
+                break;
+            case "50d":
+                holder.ivDailyIcon.setImageResource(R.drawable._50d);
+                break;
+        }
+
+        CityBreed a = new CityBreed(cityBreeds.get(position).getName(),cityBreeds.get(position).getDescription(),cityBreeds.get(position).getTemperature());
+
+        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("test xoa " + holder.tvNameCity.getText());
+                CityDatabase.getInstance(view.getContext()).cityDAO().deleteCityByName(holder.tvNameCity.getText().toString());
+                cityBreeds.remove(position);
+                //noti
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position, cityBreeds.size());
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return citys.size();
+        return cityBreeds.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
+        //FloatingActionButton
+        public FloatingActionButton btnDelete;
         public TextView tvNameCity;
         public ImageView ivDailyIcon;
         public TextView tvDailyDescription;
@@ -46,10 +115,21 @@ public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
         public ViewHolder(View view) {
             super(view);
 
+            btnDelete = view.findViewById(R.id.btn_delete);
             tvNameCity = view.findViewById(R.id.tvNameCity);
             ivDailyIcon = view.findViewById(R.id.ivDailyIcon);
             tvDailyDescription = view.findViewById(R.id.tvDailyDescription);
             tvTemperature = view.findViewById(R.id.tvTemperature);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    CityBreed citys = cityBreeds.get(getAdapterPosition());
+                    Bundle bundle=new Bundle();
+                    bundle.putSerializable("namecity",citys.getName());
+                    Navigation.findNavController(view).navigate(R.id.detailsFragment,bundle);
+                }
+            });
         }
     }
 }
