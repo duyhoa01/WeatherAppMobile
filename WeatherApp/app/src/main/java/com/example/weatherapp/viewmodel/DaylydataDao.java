@@ -6,6 +6,7 @@ import androidx.room.Query;
 
 import com.example.weatherapp.model.Daylydata;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -29,7 +30,6 @@ public interface DaylydataDao {
 
     @Query("DELETE FROM dayly_data WHERE lat= :lat and lon= :lon")
     public void deleteDaylyDataByLatLon(String lat,String lon);
-
 
 
 }

@@ -1,8 +1,13 @@
 package com.example.weatherapp.model;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.SerializedName;
 
+@Entity(tableName = "CityBreed")
 public class CityBreed {
-    @SerializedName("id")
+    @PrimaryKey(autoGenerate = true)
+    //@SerializedName("id")
     private int id;
     @SerializedName("name")
     private String name;
@@ -11,8 +16,8 @@ public class CityBreed {
     @SerializedName("temperature")
     private String temperature;
 
-    public CityBreed(int id, String name, String description, String temperature) {
-        this.id = id;
+    public CityBreed(String name, String description, String temperature) {
+        //this.id = id;
         this.name = name;
         this.description = description;
         this.temperature = temperature;

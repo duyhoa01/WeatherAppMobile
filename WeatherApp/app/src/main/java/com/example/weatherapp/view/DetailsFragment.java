@@ -1,6 +1,7 @@
 package com.example.weatherapp.view;
 
 import android.app.Activity;
+import android.app.NativeActivity;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -106,8 +108,8 @@ public class DetailsFragment extends Fragment {
                                     @Override
                                     public void onSuccess(@NonNull Daylydata daylydata) {
                                         AsyncTask.execute(new Runnable() {
-                                            @RequiresApi(api = Build.VERSION_CODES.O)
                                             @Override
+                                            @RequiresApi(api = Build.VERSION_CODES.O)
                                             public void run() {
 //                                                itemDAO.nukeTable();
                                                 itemDAO.deleteDaylyDataByLatLon(lat,lon);
@@ -206,6 +208,12 @@ public class DetailsFragment extends Fragment {
         binding = DataBindingUtil.inflate(getLayoutInflater(),
                 R.layout.fragment_details, null, false);
         View viewRoot = binding.getRoot();
+        binding.btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(viewRoot).navigate(R.id.listCityFragment);
+            }
+        });
         System.out.println("daily"+dailydata);
         binding.setDaylydata(dailydata);
         return viewRoot;
