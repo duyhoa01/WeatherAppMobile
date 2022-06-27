@@ -1,7 +1,7 @@
 # Weather app
 
 
-<p align="center"><img src="/detail1.jpg" /></p>
+<p align="center"><img src="image/detail1.jpg" /></p>
 
 **Requirements**
 - Android studio last version
